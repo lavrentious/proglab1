@@ -1,3 +1,5 @@
+import static java.lang.Math.*;
+
 public class Main {
   static final int C_LEN = 17;
   static final int X_LEN = 18;
@@ -29,17 +31,17 @@ public class Main {
   }
 
   private static double f1(double x) {
-    return Math.pow(Math.sin((x + 0.5) / 2), 0.5 / ((x * (x + 0.5) + 1) * 2));
+    return pow(sin((x + 0.5) / 2), 0.5 / ((x * (x + 0.5) + 1) * 2));
   }
 
   private static double f2(double x) {
-    return Math.log(Math.pow(Math.pow(Math.tan(x), 2), 2));
+    return log(pow(pow(tan(x), 2), 2));
   }
 
   private static double f3(double x) {
     return Math
-        .sin(Math.pow(0.75 * (Math.pow((3 - Math.cbrt(x)) / Math.asin((x + 5) / 2 * Math.E + 1), 3) + Math.PI),
-            Math.atan(1 / (Math.pow(Math.E, Math.abs(x))))));
+        .sin(pow(0.75 * (pow((3 - cbrt(x)) / asin((x + 5) / 2 * E + 1), 3) + PI),
+            atan(1 / (pow(E, abs(x))))));
   }
 
   /**
@@ -49,6 +51,6 @@ public class Main {
    * @param b upper bound (non-inclusive)
    */
   private static double randomDouble(double a, double b) {
-    return Math.random() * (b - a) + a;
+    return random() * (b - a) + a;
   }
 }
