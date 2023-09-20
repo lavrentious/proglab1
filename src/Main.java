@@ -17,13 +17,11 @@ public class Main {
     for (int i = 0; i < s.length; i++) {
       for (int j = 0; j < s[i].length; j++) {
         var y = x[j];
-        if (c[i] == 4) {
-          s[i][j] = f1(y);
-        } else if (arrayHas(new Integer[] { 5, 7, 8, 10, 12, 13, 14, 16 }, (int) c[i])) {
-          s[i][j] = f2(y);
-        } else {
-          s[i][j] = f3(y);
-        }
+        s[i][j] = switch (c[i]) {
+          case 4 -> f1(y);
+          case 5, 7, 8, 10, 12, 13, 14, 16 -> f2(y);
+          default -> f3(y);
+        };
         System.out.printf("%-10.5f", s[i][j]);
       }
       System.out.println();
@@ -42,20 +40,6 @@ public class Main {
     return Math
         .sin(Math.pow(0.75 * (Math.pow((3 - Math.cbrt(x)) / Math.asin((x + 5) / 2 * Math.E + 1), 3) + Math.PI),
             Math.atan(1 / (Math.pow(Math.E, Math.abs(x))))));
-  }
-
-  /**
-   * Checks whether an element is present in an array
-   * 
-   * @param <T> element/array type
-   * @param a   given array
-   * @param e   given element
-   */
-  private static <T> boolean arrayHas(T[] a, T e) {
-    for (T x : a)
-      if (x == e)
-        return true;
-    return false;
   }
 
   /**
